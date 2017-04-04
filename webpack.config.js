@@ -2,12 +2,16 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-   entry: 'index.js',
-   output: {
+  entry: path.resolve(__dirname, 'index.js'),
+  output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'app.js'
-   },
-   module: {
+  },
+  devServer: {
+     inline: true,
+     port: 8080
+  },
+  module: {
     loaders: [
       {
         test: /\.js$/,
@@ -17,9 +21,9 @@ module.exports = {
         }
       }
     ]
-   },
-   stats: {
+  },
+  stats: {
        colors: true
-   },
-   devtool: 'source-map'
+  },
+  devtool: 'source-map'
 };
