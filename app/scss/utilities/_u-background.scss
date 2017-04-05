@@ -1,0 +1,12 @@
+///* ========================================================================
+//   #BACKGROUND::UTILITIES
+//   ======================================================================== */
+
+
+@if $colors-map {
+  @each $name, $background-color in $colors-map {
+    .u-background-#{$name} {
+      background-color: $background-color;
+    }
+  }
+}

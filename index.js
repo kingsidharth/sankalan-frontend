@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './app/app.js';
+import DefaultView from './app/views/default.js';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<DefaultView />, document.getElementById('app'));

@@ -1,0 +1,34 @@
+///* ========================================================================
+//   #COLORS
+//   ======================================================================== */
+
+/*
+
+  Palatte Colors
+
+*/
+$red:       #E25465;
+$green:     #17AB57;
+$blue:      #2779BC;
+$yello:     #FFE557;
+
+$black:     #192A38;
+$white:     #FFFFFF;
+
+$colors-map: (
+  red:    $red,
+  green:  $green,
+  blue:   $blue,
+  yello:  $yello,
+  black:  $black
+);
+
+/*
+
+  Semantic Colours
+
+*/
+$neutral:     $blue;
+$positive:    $green;
+$negative:    $red;
+$alternate:   $yello;
