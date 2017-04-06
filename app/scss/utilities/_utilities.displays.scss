@@ -1,0 +1,15 @@
+///* ========================================================================
+//   #DISPLAYS::UTILITIES
+//   ======================================================================== */
+//   Change how display CSS property works
+
+
+$display-properties: initial, none, block, inline, inline-block, table,  flux;
+
+@if $display-properties {
+  @each $value in $display-properties {
+    .u-display-#{$value} {
+      display: $value;
+    }
+  }
+}
