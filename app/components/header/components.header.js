@@ -1,29 +1,62 @@
 import React from 'react';
-import { Menu } from '../';
 
 class Header extends React.Component {
   render() {
     return(
-      <div className="c-header o-layout__item u-1/1 u-background-black">
-        <div id="js-main-navigation" className="u-1/10 u-display-inline-block">
-          <a href="#"><i className="material-icons">menu</i></a>
+      <nav className="c-header nav has-shadow">
+
+        <div className="nav-left">
+          <div id="logo" className="nav-item">
+            <h1 className="u-logo">{ this.props.title }</h1>
+          </div>
         </div>
 
-        <div id="logo" className="u-3/10 u-display-inline-block">
-          <h1 className="u-logo">{ this.props.title }</h1>
+        <span className="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+
+        <div className="nav-right">
+          { this.props.nav.map( (item, i) => <NavItem key={i} item={ item }/> ) }
         </div>
 
-        <div id="js-context-menu" className="u-7/10 u-display-inline-block">
-          <Menu items={ this.props.menu_items } />
-        </div>
-      </div>
+      </nav>
     )
   }
 }
 
 Header.propTypes = {
   title:        React.PropTypes.string.isRequired,
-  menu_items:   React.PropTypes.array
+  menu:         React.PropTypes.object
 }
 
 export default Header;
+
+
+class NavItem extends React.Component {
+  render() {
+    const { link, onclick, text } = this.props.item;
+    const title = this.props.item.title || this.props.item.text;
+    const alt_text = this.props.item.alt || this.props.item.text;
+
+    return(
+      <a className="nav-item is-tab"
+        href={ link || '#' }
+        onClick={ onclick }
+        alt={ alt_text }
+        >{ text }
+      </a>
+    )
+  }
+}
+
+NavItem.propTypes = {
+  item: React.PropTypes.shape({
+    text:     React.PropTypes.string.isRequired,
+    onclick:  React.PropTypes.func,
+    link:     React.PropTypes.string,
+    alt:      React.PropTypes.string,
+    title:    React.PropTypes.string
+  })
+}

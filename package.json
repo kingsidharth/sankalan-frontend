@@ -19,7 +19,7 @@
     "webpack": "^2.3.2"
   },
   "dependencies": {
-    "inuitcss": "^6.0.0-beta.4",
+    "bulma": "^0.4.0",
     "react-router": "^4.0.0"
   }
 }

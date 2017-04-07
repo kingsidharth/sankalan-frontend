@@ -8,7 +8,9 @@ class DefaultView extends React.Component {
     /* The Active State of the entire app */
     this.state = {
       title: 'Sankalan',
-      context_menu: [
+
+      /* Context Menu */
+      nav_items: [
         {
           text: 'Add Company',
           onclick: function() { console.log('Clicked!'); }
@@ -19,14 +21,12 @@ class DefaultView extends React.Component {
         }
       ]
     }
-
   };
 
   render() {
     return(
-      <div className="o-layout">
-        <Header title={ this.state.title }
-                menu_items={ this.state.context_menu }/>
+      <div className="o-layout--center">
+        <Header title={ this.state.title } nav={ this.state.nav_items }/>
       </div>
     )
   }
