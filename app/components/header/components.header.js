@@ -6,6 +6,9 @@ class Header extends React.Component {
       <nav className="c-header nav has-shadow">
 
         <div className="nav-left">
+          <div className="nav-item">
+            <a id="js-drawer-nav" href="#"><i className="material-icons">menu</i></a>
+          </div>
           <div id="logo" className="nav-item">
             <h1 className="u-logo">{ this.props.title }</h1>
           </div>
