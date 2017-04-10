@@ -8,6 +8,46 @@
   Semantic Colours
 
 */
+/* PADDING */
+/* Full padding and defaults */
+.u-padding-all {
+  padding: 8px; }
+
+.u-padding-top {
+  padding: 8px; }
+
+.u-padding-right {
+  padding: 8px; }
+
+.u-padding-bottom {
+  padding: 8px; }
+
+.u-padding-left {
+  padding: 8px; }
+
+.u-padding {
+  padding: 8px; }
+
+/* Half padding and defaults */
+.u-padding-half-all, .u-padding-half {
+  padding: 4px; }
+
+.u-padding-half-top {
+  padding: 4px; }
+
+.u-padding-half-right {
+  padding: 4px; }
+
+.u-padding-half-bottom {
+  padding: 4px; }
+
+.u-padding-half-left {
+  padding: 4px; }
+
+/* MARGINS */
+.u-margin-bottom {
+  margin-bottom: 8; }
+
 /*! bulma.io v0.4.0 | MIT License | github.com/jgthms/bulma */
 @keyframes spinAround {
   from {
@@ -3938,5 +3978,21 @@ label.panel-block {
 .footer {
   background-color: whitesmoke;
   padding: 3rem 1.5rem 6rem; }
+
+.c-sidebar {
+  background: #FFFFFF;
+  width: 300px;
+  padding: 8px;
+  position: fixed;
+  left: -350px; }
+  .c-sidebar.is_visible {
+    left: 0px;
+    box-shadow: 0 2px 3px rgba(25, 42, 56, 0.1);
+    height: 100%; }
+
+#logo {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #192A38; }
 
 /*# sourceMappingURL=main.css.map */

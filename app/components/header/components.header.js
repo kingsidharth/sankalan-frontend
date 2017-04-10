@@ -1,16 +1,23 @@
 import React from 'react';
 
 class Header extends React.Component {
+
   render() {
+    const { title, nav, actions } = this.props;
+    const ui_hamburget = actions.hamburger || false;
+    const ui_logo      = actions.logo || false;
+
     return(
       <nav className="c-header nav has-shadow">
 
         <div className="nav-left">
           <div className="nav-item">
-            <a id="js-drawer-nav" href="#"><i className="material-icons">menu</i></a>
+            <a onClick={ ui_hamburget } id="js-drawer-nav" href="#">
+              <i className="material-icons">menu</i>
+            </a>
           </div>
           <div id="logo" className="nav-item">
-            <h1 className="u-logo">{ this.props.title }</h1>
+            <h1 className="u-logo">{ title }</h1>
           </div>
         </div>
 
@@ -21,7 +28,7 @@ class Header extends React.Component {
         </span>
 
         <div className="nav-right">
-          { this.props.nav.map( (item, i) => <NavItem key={i} item={ item }/> ) }
+          { nav.map( (item, i) => <NavItem key={i} item={ item }/> ) }
         </div>
 
       </nav>

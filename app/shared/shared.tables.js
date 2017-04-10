@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 
 class Table extends React.Component {
   render() {
@@ -66,6 +65,7 @@ function TableHeaderItem(props) {
 
 function TableRow(props) {
   const { row, headers } = props;
+  // const content = row[header.key] || '';
   return(<tr>
     { headers.map( (header, i) => <TableCell key={i}>{ row[header.key] || '' }</TableCell>)}
   </tr>);
