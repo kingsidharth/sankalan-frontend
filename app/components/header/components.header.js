@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-class Header extends React.Component {
+class Header extends React.PureComponent {
 
   render() {
     const { title, nav, actions } = this.props;
