@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from '../components';
+import { Header, Company } from '../components';
 import { Table, Sidebar }  from '../shared';
 import { assing as extend } from 'lodash';
 
@@ -37,14 +37,22 @@ class DefaultView extends React.Component {
             onclick: function() { console.log('Clicked!'); }
           }
         ]
-      }
+      }, // header
+
+      frame: {
+        type: 'company',
+        data: {
+          id: 123,
+          name: 'Colgate-Palmolive'
+        }
+      } // frame
     }
   };
 
   toggle_sidebar(e) {
     const current_state = this.state.layout.is_visible.sidebar;
-
     this.setState(prevState => ( prevState.layout.is_visible.sidebar = !current_state ));
+    e.preventDefault();
   }
 
   render() {
@@ -59,10 +67,39 @@ class DefaultView extends React.Component {
           actions={ this.state.header.actions }
         />
         <Sidebar is_visible={ is_visible.sidebar } />
-        <Table/>
+        <Frame frame={ this.state.frame } />
       </div>
     )
   }
 }
 
 export default DefaultView;
+
+function Frame(props) {
+  const { type } = props.frame;
+
+  let mount;
+  switch (type) {
+    case 'company':
+      mount = <CompanyFrame company={ props.frame.data }/>;
+      break;
+    default:
+      mount = <CompanyFrame company={ props.frame.data }/>;
+  }
+
+  return(
+    <div id="js-frame" className="content">
+      { mount }
+    </div>
+  )
+}
+
+function CompanyFrame(props) {
+  return(
+    <div>
+      <Company company={ props.company }>
+      </Company>
+      <Table/>
+    </div>
+  )
+}
