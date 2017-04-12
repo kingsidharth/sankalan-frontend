@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 
-// import { Header, Company } from '../components';
+import { Header } from '../components';
 import { Sidebar, Menu } from '../shared';
 import DashboardView from './views.dashboard';
 import CompanyView from './views.company';
@@ -30,7 +30,7 @@ class DefaultView extends React.Component {
       },
 
       view: {
-        type: 'dashboard'
+        type: 'company'
       }
 
     }
@@ -69,19 +69,20 @@ class View extends React.Component{
     let children;
     switch (type) {
       case 'dashboard':
-        children = <DashboardView title="Dashboard" header={ header } />;
+        children = <DashboardView title="Dashboard" />;
         break;
 
       case 'company':
-        children = <CompanyFrame />;
+        children = <CompanyView />;
         break;
 
       default:
-        children = <CompanyFrame />;
+        children = <CompanyView />;
     }
 
     return(
       <div id="js-frame" className="content">
+        <Header title={ header.title } nav={ header.nav } actions={ header.actions } />
         { children }
       </div>
     )

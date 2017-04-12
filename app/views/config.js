@@ -6,7 +6,7 @@
   props: {
     title: STRING,
 
-    header: { * see <Header> },
+    header: { * see <Header> }, // Required
 
     summary: { TBD },
 
@@ -24,6 +24,7 @@
   }
 */
 
+// DASHBOARD
 const dashboard = {
   type: 'dashboard',
 
@@ -44,9 +45,28 @@ const dashboard = {
 
   data: {}
 
-} // DASHBOARD
+}
+
+// COMPANY
+const company = {
+  type: 'company',
+
+  header: {
+    title: 'Colgate-Palmolive',
+
+    actions: {},
+
+    nav: [
+      {
+        text: 'Add Transactions',
+        onclick: function() { console.log('add.Transactions'); }
+      }
+    ]
+  }
+}
 
 
 export default {
-  dashboard
+  dashboard,
+  company
 }
