@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Table extends React.Component {
+class Table extends React.PureComponent {
   render() {
     const config = {
       id: 'js_table_overview',

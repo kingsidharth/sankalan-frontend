@@ -22,7 +22,7 @@ class Company extends React.Component {
 export default Company;
 
 Company.propTypes = {
-  company: React.PropTypes.shape({
-    name:   React.PropTypes.string.isRequired
+  company: PropTypes.shape({
+    name:   PropTypes.string.isRequired
   })
 }

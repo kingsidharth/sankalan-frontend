@@ -38,8 +38,8 @@ class Header extends React.PureComponent {
 }
 
 Header.propTypes = {
-  title:        React.PropTypes.string.isRequired,
-  menu:         React.PropTypes.object
+  title:        PropTypes.string.isRequired,
+  menu:         PropTypes.object
 }
 
 export default Header;
@@ -63,11 +63,11 @@ class NavItem extends React.Component {
 }
 
 NavItem.propTypes = {
-  item: React.PropTypes.shape({
-    text:     React.PropTypes.string.isRequired,
-    onclick:  React.PropTypes.func,
-    link:     React.PropTypes.string,
-    alt:      React.PropTypes.string,
-    title:    React.PropTypes.string
+  item: PropTypes.shape({
+    text:     PropTypes.string.isRequired,
+    onclick:  PropTypes.func,
+    link:     PropTypes.string,
+    alt:      PropTypes.string,
+    title:    PropTypes.string
   })
 }
