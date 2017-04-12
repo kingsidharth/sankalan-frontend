@@ -1,7 +1,13 @@
 import React from 'react';
-import { Header, Company } from '../components';
-import { Table, Sidebar }  from '../shared';
-import { assing as extend } from 'lodash';
+import _ from 'lodash';
+
+// import { Header, Company } from '../components';
+import { Sidebar, Menu } from '../shared';
+import DashboardView from './views.dashboard';
+import CompanyView from './views.company';
+
+import VIEWS from './config';
+
 
 class DefaultView extends React.Component {
   constructor() {
@@ -11,8 +17,6 @@ class DefaultView extends React.Component {
 
     /* The Active State of the entire app */
     this.state = {
-      title: 'Sankalan',
-
       layout: {
         is_visible: {
           header:  true,
@@ -21,31 +25,14 @@ class DefaultView extends React.Component {
         }
       },
 
-      /* Context Menu */
-      header: {
-        actions: {
-          hamburger: this.toggle_sidebar
-        },
+      sidebar: {
 
-        nav: [
-          {
-            text: 'Add Company',
-            onclick: function() { console.log('Clicked!'); }
-          },
-          {
-            text: 'Gogogo',
-            onclick: function() { console.log('Clicked!'); }
-          }
-        ]
-      }, // header
+      },
 
-      frame: {
-        type: 'company',
-        data: {
-          id: 123,
-          name: 'Colgate-Palmolive'
-        }
-      } // frame
+      view: {
+        type: 'dashboard'
+      }
+
     }
   };
 
@@ -58,16 +45,15 @@ class DefaultView extends React.Component {
   render() {
     const { is_visible } = this.state.layout;
 
+    let view = get_view_cofiguration(VIEWS, this.state.view.type);
+
     return(
       <div>
-        <Header
-          is_visible={ is_visible.header }
-          title={ this.state.title }
-          nav={ this.state.header.nav }
-          actions={ this.state.header.actions }
-        />
-        <Sidebar is_visible={ is_visible.sidebar } />
-        <Frame frame={ this.state.frame } />
+        <Sidebar is_visible={ is_visible.sidebar }>
+          <Menu />
+        </Sidebar>
+
+        <View view={ view } />
       </div>
     )
   }
@@ -75,31 +61,33 @@ class DefaultView extends React.Component {
 
 export default DefaultView;
 
-function Frame(props) {
-  const { type } = props.frame;
 
-  let mount;
-  switch (type) {
-    case 'company':
-      mount = <CompanyFrame company={ props.frame.data }/>;
-      break;
-    default:
-      mount = <CompanyFrame company={ props.frame.data }/>;
+class View extends React.Component{
+  render() {
+    const { type, header } = this.props.view;
+
+    let children;
+    switch (type) {
+      case 'dashboard':
+        children = <DashboardView title="Dashboard" header={ header } />;
+        break;
+
+      case 'company':
+        children = <CompanyFrame />;
+        break;
+
+      default:
+        children = <CompanyFrame />;
+    }
+
+    return(
+      <div id="js-frame" className="content">
+        { children }
+      </div>
+    )
   }
-
-  return(
-    <div id="js-frame" className="content">
-      { mount }
-    </div>
-  )
 }
 
-function CompanyFrame(props) {
-  return(
-    <div>
-      <Company company={ props.company }>
-      </Company>
-      <Table/>
-    </div>
-  )
+function get_view_cofiguration(views, type) {
+  return _.find(views, { type: type }) || {};
 }
