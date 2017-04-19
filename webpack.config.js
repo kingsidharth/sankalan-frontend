@@ -1,6 +1,8 @@
 var path = require('path');
 var webpack = require('webpack');
 
+var JAVASCRIPT_STACK_LOADER = require('./config/config.javascript.js');
+
 module.exports = {
   entry: path.resolve(__dirname, 'index.js'),
   output: {
@@ -13,17 +15,14 @@ module.exports = {
   },
   module: {
     loaders: [
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        query: {
-            presets: ['es2015', 'react']
-        }
-      }
+      JAVASCRIPT_STACK_LOADER
     ]
   },
   stats: {
        colors: true
   },
+  // resolveLoader: {
+  //   root: path.join(__dirname, 'node_modules')
+  // },
   devtool: 'source-map'
 };
