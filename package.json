@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --hot",
-    "watch": "concurrently \"webpack-dev-server --hot\" \"python3 -m http.server\" \"sass app/scss/main.scss:dist/css/main.css --watch\""
+    "dev": "webpack --hot --debug --watch",
+    "watch": "concurrently \"yarn run dev\" \"python3 -m http.server\""
   },
   "author": "@kingsidharth",
   "license": "UNLICENSED",
@@ -17,15 +17,16 @@
     "babel-preset-react": "^6.23.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "webpack": "^2.3.2",
+    "webpack": "^2.4.1",
     "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
     "bulma": "^0.4.0",
     "concurrently": "^3.4.0",
     "css-loader": "^0.28.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "global": "^4.3.2",
     "lodash": "^4.17.4",
-    "node-sass": "^4.5.2",
     "prop-types": "^15.5.6",
     "react-router": "^4.0.0",
     "sass-loader": "^6.0.3"
