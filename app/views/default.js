@@ -1,5 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import { Header } from '../components';
 import { Sidebar, Menu } from '../shared';
@@ -9,31 +11,31 @@ import CompanyView from './views.company';
 import VIEWS from './config';
 
 
-class DefaultView extends React.Component {
+class Layout extends React.Component {
   constructor() {
     super();
 
     this.toggle_sidebar = this.toggle_sidebar.bind(this);
 
     /* The Active State of the entire app */
-    this.state = {
-      layout: {
-        is_visible: {
-          header:  true,
-          sidebar: false,
-          modal:   false
-        }
-      },
-
-      sidebar: {
-
-      },
-
-      view: {
-        type: 'company'
-      }
-
-    }
+    // this.state = {
+    //   layout: {
+    //     is_visible: {
+    //       header:  true,
+    //       sidebar: false,
+    //       modal:   false
+    //     }
+    //   },
+    //
+    //   sidebar: {
+    //
+    //   },
+    //
+    //   view: {
+    //     type: 'company'
+    //   }
+    //
+    // }
   };
 
   toggle_sidebar(e) {
@@ -43,9 +45,9 @@ class DefaultView extends React.Component {
   }
 
   render() {
-    const { is_visible } = this.state.layout;
+    const { is_visible } = this.props.layout || false;
 
-    let view = get_view_cofiguration(VIEWS, this.state.view.type);
+    let view = get_view_cofiguration(VIEWS, this.props.view.type);
 
     return(
       <div>
@@ -59,9 +61,17 @@ class DefaultView extends React.Component {
   }
 }
 
-export default DefaultView;
+
+const mapStateToProps = function(store) {
+  return store;
+}
 
 
+// export default DefaultView;
+export default connect(mapStateToProps)(Layout);
+
+
+/* View <-> Component Mapping */
 class View extends React.Component{
   render() {
     const { type, header } = this.props.view;

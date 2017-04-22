@@ -1,5 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import DefaultView from './app/views/default.js';
+import { Provider } from 'react-redux'
 
-ReactDOM.render(<DefaultView />, document.getElementById('app'));
+import Layout from './app/views/default.js';
+import store from './app/store';
+
+ReactDOM.render(
+  <Provider store={ store }>
+    <Layout />
+  </Provider>,
+  document.getElementById('app')
+);
