@@ -66,7 +66,7 @@ const company = {
 }
 
 
-export default {
+export default [
   dashboard,
   company
-}
+]

@@ -5,7 +5,7 @@ class Sidebar extends React.PureComponent {
     const { is_visible, children } = this.props;
 
     return(
-      <div className={ 'c-sidebar ' + (!!is_visible ? 'is_visible' : '') }>
+      <div className={ 'c-sidebar ' + (!!is_visible ? 'is_visible' : '') } style={{ marginTop: '4em' }}>
         { children }
       </div>
     )

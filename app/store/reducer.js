@@ -1,7 +1,12 @@
-import initial_state from './state';
+import { combineReducers } from 'redux'
 
-const reducer_app = (state = initial_state, action) => {
-  return state;
-}
+import reducer_layout from '../layout/reducers';
+import reducer_view from '../views/reducers';
+
+const reducer_app = combineReducers({
+  layout:   reducer_layout,
+  view:     reducer_view,
+  sidebar:  (state = {}, action) => state
+});
 
 export default reducer_app;

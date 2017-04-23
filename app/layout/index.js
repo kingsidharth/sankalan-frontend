@@ -5,57 +5,38 @@ import { bindActionCreators } from 'redux';
 
 import { Header } from '../components';
 import { Sidebar, Menu } from '../shared';
-import DashboardView from './views.dashboard';
-import CompanyView from './views.company';
+import DashboardView from '../views/views.dashboard';
+import CompanyView from '../views/views.company';
 
-import VIEWS from './config';
-
+import ACTIONS from './actions';
 
 class Layout extends React.Component {
   constructor() {
     super();
 
     this.toggle_sidebar = this.toggle_sidebar.bind(this);
-
-    /* The Active State of the entire app */
-    // this.state = {
-    //   layout: {
-    //     is_visible: {
-    //       header:  true,
-    //       sidebar: false,
-    //       modal:   false
-    //     }
-    //   },
-    //
-    //   sidebar: {
-    //
-    //   },
-    //
-    //   view: {
-    //     type: 'company'
-    //   }
-    //
-    // }
   };
 
   toggle_sidebar(e) {
-    const current_state = this.state.layout.is_visible.sidebar;
-    this.setState(prevState => ( prevState.layout.is_visible.sidebar = !current_state ));
+    this.props.dispatch(ACTIONS.sidebar_toggle());
     e.preventDefault();
   }
 
   render() {
     const { is_visible } = this.props.layout || false;
-
-    let view = get_view_cofiguration(VIEWS, this.props.view.type);
+    const { view } = this.props;
 
     return(
       <div>
         <Sidebar is_visible={ is_visible.sidebar }>
-          <Menu />
+          <Menu items={ [] } />
         </Sidebar>
 
-        <View view={ view } />
+        <View
+          view={ view }
+          hamburger={ this.toggle_sidebar }
+          show_header={ is_visible.header }
+        />
       </div>
     )
   }
@@ -71,9 +52,17 @@ const mapStateToProps = function(store) {
 export default connect(mapStateToProps)(Layout);
 
 
-/* View <-> Component Mapping */
+/*
+  View <-> Component Mapping
+  @params
+  hamburger =       function(e) // handle_hamburger_onClick
+  view =            { type, header }
+  show_header =     true: boolean
+
+*/
 class View extends React.Component{
   render() {
+    const { hamburger, show_header } = this.props;
     const { type, header } = this.props.view;
 
     let children;
@@ -92,13 +81,16 @@ class View extends React.Component{
 
     return(
       <div id="js-frame" className="content">
-        <Header title={ header.title } nav={ header.nav } actions={ header.actions } />
+        <Header
+          is_visible={ show_header }
+          title={ header.title }
+          nav={ header.nav }
+          hamburger={ hamburger }
+        />
+
         { children }
+
       </div>
     )
   }
-}
-
-function get_view_cofiguration(views, type) {
-  return _.find(views, { type: type }) || {};
 }

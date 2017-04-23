@@ -13,7 +13,20 @@ const initial_state = {
   },
 
   view: {
-    type: 'company'
+    context: 'company',
+
+    header: {
+      title: 'Colgate-Palmolive',
+
+      actions: {},
+
+      nav: [
+        {
+          text: 'Add Transactions',
+          onclick: function() { console.log('add.Transactions'); }
+        }
+      ]
+    } //header
   }
 }
 

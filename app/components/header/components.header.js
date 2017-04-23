@@ -1,19 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 class Header extends React.PureComponent {
 
   render() {
-    const { title, nav, actions } = this.props;
-    const ui_hamburget = actions.hamburger || false;
-    const ui_logo      = actions.logo || false;
+    const {
+      is_visible,
+      title,
+      nav,
+      hamburger
+    } = this.props;
+
+    // CSS classnames
+    const css_classes = {
+      'c-header':   true,
+      'nav':        true,
+      'has-shadow': true,
+      'is_visible': is_visible || false
+    }
 
     return(
-      <nav className="c-header nav has-shadow">
+      <nav className={ classNames(css_classes) }
+        style={{ display: ( !is_visible ? 'none' : '' ) }}>
 
         <div className="nav-left">
           <div className="nav-item">
-            <a onClick={ ui_hamburget } id="js-drawer-nav" href="#">
+            <a onClick={ hamburger } id="js-drawer-nav" href="#">
               <i className="material-icons">menu</i>
             </a>
           </div>
