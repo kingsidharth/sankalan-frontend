@@ -9,11 +9,27 @@ const initial_state = {
   },
 
   sidebar: {
-
+    nav_items: [
+      {
+        id: 1,
+        title:   'Dashboard',
+        onclick: function(e) { console.log(e) }
+      },
+      {
+        id: 2,
+        title:   'Companies',
+        onclick: function(e) { console.log(e) }
+      },
+      {
+        id: 2,
+        title:   'Accounts',
+        onclick: function(e) { console.log(e) }
+      }
+    ]
   },
 
   view: {
-    context: 'company',
+    type: 'company',
 
     header: {
       title: 'Colgate-Palmolive',

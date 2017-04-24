@@ -1,15 +1,24 @@
 import HEADERS from '../layout/config';
 import { find } from 'lodash';
 
-const reducer_view = (state, action) => {
-  const header = find(HEADERS, { type: action.context });
+import view_actions from './actions';
 
-  switch (action.context) {
-    case 'company':
-      return Object.assign({}, state, header);
+
+const reducer_view = (state, action) => {
+  const header = find(HEADERS, { type: action.type });
+  let next_state = Object.assign({}, state, header);
+
+  switch (action.type) {
+    case view_actions.view_dashboard:
+      return next_state;
       break;
+
+    case view_actions.view_company:
+      return next_state;
+      break;
+
     default:
-      return Object.assign({}, state, header);
+      return next_state;
   }
 }
 

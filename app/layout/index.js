@@ -3,8 +3,8 @@ import _ from 'lodash';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Header } from '../components';
-import { Sidebar, Menu } from '../shared';
+import { Header, Sidebar } from '../components';
+import { Menu } from '../shared';
 import DashboardView from '../views/views.dashboard';
 import CompanyView from '../views/views.company';
 
@@ -24,14 +24,11 @@ class Layout extends React.Component {
 
   render() {
     const { is_visible } = this.props.layout || false;
-    const { view } = this.props;
+    const { view, sidebar } = this.props;
 
     return(
       <div>
-        <Sidebar is_visible={ is_visible.sidebar }>
-          <Menu items={ [] } />
-        </Sidebar>
-
+        <Sidebar is_visible={ is_visible.sidebar } />
         <View
           view={ view }
           hamburger={ this.toggle_sidebar }

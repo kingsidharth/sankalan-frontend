@@ -11,8 +11,9 @@ class Menu extends React.PureComponent {
           { title }
         </p>
         <ul className="menu-list c-sidebar__menu">
-          <li><a>Dashboard</a></li>
-          <li><a>Customers</a></li>
+          { items.map(
+            (item, i) => <li key={i}><a onClick={item.onclick} href="#">{item.title}</a></li>
+          ) }
         </ul>
       </div>
     )
