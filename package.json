@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "yarn run clean && webpack-dev-server --debug --hot --watch",
+    "dev": "webpack-dev-server --debug --hot --watch",
     "dashboard": "webpack-dashboard -- yarn run dev",
     "clean": "rm -rf dist/"
   },
@@ -14,21 +14,28 @@
   "devDependencies": {
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "extract-text-webpack-plugin": "^2.1.0",
     "node-sass": "^4.5.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "redux-devtools": "^3.3.2",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.1",
     "webpack": "^2.4.1",
+    "webpack-dashboard": "^0.3.0",
     "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "babel-runtime": "^6.23.0",
     "bulma": "^0.4.0",
     "classnames": "^2.2.5",
     "concurrently": "^3.4.0",
     "css-loader": "^0.28.0",
-    "extract-text-webpack-plugin": "^2.1.0",
     "global": "^4.3.2",
     "lodash": "^4.17.4",
     "prop-types": "^15.5.6",
@@ -36,8 +43,6 @@
     "react-router": "^4.0.0",
     "redux": "^3.6.0",
     "redux-actions": "^2.0.2",
-    "redux-logger": "^3.0.1",
-    "sass-loader": "^6.0.3",
-    "webpack-dashboard": "^0.3.0"
+    "redux-logger": "^3.0.1"
   }
 }
