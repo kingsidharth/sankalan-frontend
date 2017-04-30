@@ -4,17 +4,26 @@ import { bindActionCreators } from 'redux';
 
 import { Header, Sidebar } from '../components';
 import { Menu } from '../shared';
-import DashboardView from '../views/views.dashboard';
-import CompanyView from '../views/views.company';
+
+import {
+  DashboardView,
+  CompanyView
+} from '../views/';
 
 import ACTIONS from './actions';
+import VIEW_ACTIONS from '../views/actions';
 
 class Layout extends React.Component {
   constructor() {
     super();
 
     this.toggle_sidebar = this.toggle_sidebar.bind(this);
+    this.view_init      = this.view_init.bind(this);
   };
+
+  view_init() {
+    this.props.dispatch(VIEW_ACTIONS.view_dashboard());
+  }
 
   toggle_sidebar(e) {
     this.props.dispatch(ACTIONS.sidebar_toggle());
@@ -24,6 +33,10 @@ class Layout extends React.Component {
   render() {
     const { is_visible } = this.props.layout || false;
     const { view, sidebar } = this.props;
+
+    if(view.type === 'init') {
+      this.view_init();
+    }
 
     return(
       <div>
@@ -59,20 +72,20 @@ export default connect(mapStateToProps)(Layout);
 class View extends React.Component{
   render() {
     const { hamburger, show_header } = this.props;
-    const { type, header } = this.props.view;
+    const { type, header, data } = this.props.view;
 
     let children;
     switch (type) {
       case 'dashboard':
-        children = <DashboardView title="Dashboard" />;
+        children = <DashboardView data={ data } title="Dashboard" />;
         break;
 
       case 'company':
-        children = <CompanyView />;
+        children = <CompanyView data={ data } />;
         break;
 
       default:
-        children = <CompanyView />;
+        children = false;
     }
 
     return(

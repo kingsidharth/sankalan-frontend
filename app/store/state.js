@@ -9,36 +9,20 @@ const initial_state = {
   },
 
   sidebar: {
-    nav_items: [
-      {
-        id: 1,
-        title:   'Dashboard',
-        onclick: function(e) { console.log(e) }
-      },
-      {
-        id: 2,
-        title:   'Companies',
-        onclick: function(e) { console.log(e) }
-      },
-      {
-        id: 2,
-        title:   'Accounts',
-        onclick: function(e) { console.log(e) }
-      }
-    ]
+
   },
 
   view: {
-    type: 'company',
+    type: 'init',
 
     header: {
-      title: 'Colgate-Palmolive',
+      title: 'SANKALAN',
 
       actions: {},
 
       nav: [
         {
-          text: 'Add Transactions',
+          text: 'Loading...',
           onclick: function() { console.log('add.Transactions'); }
         }
       ]

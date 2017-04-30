@@ -1,34 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Table extends React.PureComponent {
   render() {
-    const config = {
-      id: 'js_table_overview',
-      headers: [
-        { key: 'company', title: 'Company' },
-        { key: 'amount', title:  'Investment Amt.' },
-        { key: 'dividend', title: 'Dividend' },
-        { key: 'cash_earning', title: 'Cash Earning' },
-      ]
-    }
-
-    const data = [
-      {
-        company: 'Colgate-Palmolive',
-        amount: 100,
-        dividend: 10,
-        cash_earning: 12
-      },
-      {
-        company: 'State Bank of India',
-        amount: 100,
-        dividend: 10,
-        cash_earning: 12
-      },
-    ]
-
-    const headers = config.headers;
-    const table_id = config.id;
+    const { headers , table_id } = this.props.config;
+    const { rows } = this.props;
 
     return(
 
@@ -46,7 +22,7 @@ class Table extends React.PureComponent {
         </thead>
         <tbody>
           {
-            data.map((row, i) =>
+            rows.map((row, i) =>
               <TableRow key={i} row={ row } headers={ headers }/>
             )
           }
@@ -57,6 +33,15 @@ class Table extends React.PureComponent {
 }
 
 export default Table;
+
+Table.propTypes = {
+  config: PropTypes.shape({
+    id: PropTypes.string,
+    headers: PropTypes.array.isRequired
+  }),
+
+  rows: PropTypes.array.isRequired
+}
 
 function TableHeaderItem(props) {
   const { colspan, children } = props;

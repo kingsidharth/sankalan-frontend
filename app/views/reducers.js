@@ -3,6 +3,7 @@ import { find, curry, flow } from 'lodash';
 
 import view_actions from './actions';
 
+const IS_INIT      = view_actions.view_init().type;
 const IS_DASHBOARD = view_actions.view_dashboard().type;
 const IS_COMPANY   = view_actions.view_company().type;
 
@@ -12,6 +13,10 @@ const reducer_view = (state = {}, action) => {
   const config = get_configuration(CONFIGS);
 
   switch (action.type) {
+    case IS_INIT:
+
+      break;
+
     case IS_DASHBOARD:
       return next_state( config({ type: 'dashboard'}) );
       break;

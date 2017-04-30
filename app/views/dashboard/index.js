@@ -8,15 +8,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Table }  from '../shared';
+import { CompanyForm } from '../../components';
+import { Table } from '../../shared';
 
-class DashboardView extends React.Component {
+class DashboardView extends React.PureComponent {
   render() {
-    const { title, children } = this.props;
+    const { title, data, children } = this.props;
 
     return(
       <div id="js-view-dashboard" className="js-view">
-        <Table/>
+        <CompanyForm width="450px" />
+        <Table config={ data.table.config } rows={ data.table.rows } />
         { children }
       </div>
     )
