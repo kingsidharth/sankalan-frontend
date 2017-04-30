@@ -17,12 +17,11 @@ class Header extends React.PureComponent {
       'c-header':   true,
       'nav':        true,
       'has-shadow': true,
-      'is_visible': is_visible || false
+      'is_visible': true
     }
 
     return(
-      <nav className={ classNames(css_classes) }
-        style={{ display: ( !is_visible ? 'none' : '' ) }}>
+      <nav className={ classNames(css_classes) }>
 
         <div className="nav-left">
           <div className="nav-item">

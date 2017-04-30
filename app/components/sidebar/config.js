@@ -1,8 +1,8 @@
-import store from '../../store';
+import { dispatch } from '../../store';
 import view_actions from '../../views/actions';
-import layout_actions from '../../layout/actions';
+import { actions as layout_actions } from '../../layout/actions';
 
-const { dispatch } = store;
+// const { dispatch } = store;
 
 const nav_items = [
   {

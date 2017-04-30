@@ -1,5 +1,12 @@
-import { createAction } from 'redux-actions';
+import { createTypes, actionCreator } from 'redux-action-creator';
 
-const sidebar_toggle = createAction('SIDEBAR_TOGGLE');
+export const types = createTypes([
+  'SIDEBAR_TOGGLE',
+  'MODAL_TOGGLE'
+])
 
-export default { sidebar_toggle };
+
+export const actions = {
+  sidebar_toggle:   actionCreator(types.SIDEBAR_TOGGLE),
+  modal_toggle:     actionCreator(types.MODAL_TOGGLE)
+}

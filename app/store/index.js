@@ -10,4 +10,8 @@ let store = createStore(
   applyMiddleware(logger)
 );
 
+const { dispatch } = store;
+
 export default store;
+
+export { dispatch };
