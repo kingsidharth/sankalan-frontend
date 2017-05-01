@@ -1,19 +1,18 @@
 import { dispatch } from '../../store';
-import { actions as layout_actions } from '../../layout/actions';
+import { actions as company_actions } from '../../components/company/actions';
+
+const ADD_COMPANY = function() {
+  dispatch(company_actions.company_create_intent());
+}
+
 
 const header = {
   title: 'SANKALAN',
 
-  actions: {
-    // hamburger: this.toggle_sidebar
-  },
-
   nav: [
     {
       text: 'Add Company',
-      onclick: function(e) {
-        dispatch(layout_actions.modal_toggle());
-      }
+      onclick: ADD_COMPANY
     }
   ],
 }

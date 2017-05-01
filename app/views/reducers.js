@@ -1,11 +1,11 @@
 import CONFIGS from './config';
 import { find, curry, flow } from 'lodash';
 
-import view_actions from './actions';
+import { types as ACTION_TYPES } from './actions';
 
-const IS_INIT      = view_actions.view_init().type;
-const IS_DASHBOARD = view_actions.view_dashboard().type;
-const IS_COMPANY   = view_actions.view_company().type;
+const IS_INIT      = ACTION_TYPES.INIT;
+const IS_DASHBOARD = ACTION_TYPES.DASHBOARD;
+const IS_COMPANY   = ACTION_TYPES.COMPANY;
 
 const reducer_view = (state = {}, action) => {
   // const config = find(CONFIGURATION, { type: action.type });

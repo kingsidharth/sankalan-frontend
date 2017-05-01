@@ -17,7 +17,6 @@ class DashboardView extends React.PureComponent {
 
     return(
       <div id="js-view-dashboard" className="js-view">
-        <CompanyForm width="450px" />
         <Table config={ data.table.config } rows={ data.table.rows } />
         { children }
       </div>

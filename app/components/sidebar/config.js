@@ -1,5 +1,5 @@
 import { dispatch } from '../../store';
-import view_actions from '../../views/actions';
+import { actions as view_actions } from '../../views/actions';
 import { actions as layout_actions } from '../../layout/actions';
 
 // const { dispatch } = store;

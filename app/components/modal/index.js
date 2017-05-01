@@ -6,6 +6,7 @@ import CardModal from './card.modal';
 
 class Modal extends React.PureComponent {
   render() {
+    console.log(this);
     const modal = get_modal_content(this.props);
     const { is_visible, close }= this.props || false;
 
@@ -22,13 +23,16 @@ class Modal extends React.PureComponent {
 export default Modal;
 
 Modal.propTypes = {
-  children: PropTypes.any.isRequired,
-  header: PropTypes.object,
-  footer: PropTypes.object
+  close:      PropTypes.func.isRequired,
+  children:   PropTypes.any,
+  is_visible: PropTypes.bool,
+  header:     PropTypes.object,
+  footer:     PropTypes.object
 }
 
 function get_modal_content(props) {
   const { header, footer, children } = props || false;
+
   const IS_SIMPLE = !!children && !header && !footer;
   const IS_CARD   = !!children && !!header && !!footer;
 

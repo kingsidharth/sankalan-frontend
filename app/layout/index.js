@@ -7,27 +7,26 @@ import { Sidebar, Modal } from '../components';
 import { Menu } from '../shared';
 
 import { actions as ACTIONS } from './actions';
-import VIEW_ACTIONS from '../views/actions';
+import { actions as VIEW_ACTIONS } from '../views/actions';
 
 class Layout extends React.Component {
   constructor() {
     super();
-
-    this.view_init      = this.view_init.bind(this);
   };
-
-  view_init() {
-    this.props.dispatch(VIEW_ACTIONS.view_dashboard());
-  }
 
   render() {
     const { is_visible } = this.props.layout || false;
-    const { view, sidebar } = this.props;
+    const {
+      view,
+      sidebar,
+      modal,
+      dispatch
+    } = this.props;
 
-    let bound_actions = bindActionCreators(ACTIONS, this.props.dispatch);
+    let bound_actions = bindActionCreators(ACTIONS, dispatch);
 
     if(view.type === 'init') {
-      this.view_init();
+      dispatch(VIEW_ACTIONS.view_dashboard());
     }
 
     return(
@@ -40,8 +39,8 @@ class Layout extends React.Component {
 
         <Modal
           is_visible={ is_visible.modal }
-          close={ bound_actions.modal_toggle }>
-          <p>I am modal.</p>
+          close={ bound_actions.modal_toggle }
+          {...modal}>
         </Modal>
       </div>
     )

@@ -1,10 +1,15 @@
-import { createAction } from 'redux-actions';
+import { createTypes, actionCreator } from 'redux-action-creator';
 
-const view_actions = {
-  view_init:      createAction('VIEW_INIT'),
-  view_dashboard: createAction('VIEW_DASHBOARD'),
-  view_company:   createAction('VIEW_COMPANY'),
-  view_dividend:  createAction('VIEW_DIVIDEND')
+export const types = createTypes([
+  'INIT',
+  'COMPANY',
+  'DASHBOARD',
+  'DIVIDEND'
+], 'VIEW');
+
+export const actions = {
+  view_init:      actionCreator(types.INIT),
+  view_company:   actionCreator(types.COMPANY),
+  view_dashboard: actionCreator(types.DASHBOARD),
+  view_dividend:  actionCreator(types.DIVIDEND)
 }
-
-export default view_actions;
