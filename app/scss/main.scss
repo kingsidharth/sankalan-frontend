@@ -4,6 +4,7 @@
 @import "settings/settings.colors";
 @import "settings/settings.config";
 @import "settings/settings.sizes";
+@import "settings/settings.material-icons";
 
 // Utilities
 @import "utilities/utilities.spacing";
@@ -11,8 +12,11 @@
 
 // Import Bulma
 @import "../../node_modules/bulma/bulma";
+@import "../../node_modules/material-design-icons/iconfont/material-icons.css";
 
 // Coponents
 @import "components/components.sidebar";
+@import "components/components.nav";
+@import "components/components.forms";
 
 @import "shame";

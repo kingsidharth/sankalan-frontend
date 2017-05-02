@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "css": "sass --watch app/scss:dist/css/",
-    "dev": "webpack-dev-server --debug --hot --watch && yarn run css",
+    "dev": "webpack-dev-server --debug --hot --watch",
     "dashboard": "webpack-dashboard -- yarn run dev",
     "clean": "rm -rf dist/"
   },
@@ -39,7 +39,9 @@
     "css-loader": "^0.28.0",
     "global": "^4.3.2",
     "lodash": "^4.17.4",
+    "material-design-icons": "^3.0.1",
     "prop-types": "^15.5.6",
+    "react-jsonschema-form": "^0.48.0",
     "react-redux": "^5.0.4",
     "react-router": "^4.0.0",
     "redux": "^3.6.0",

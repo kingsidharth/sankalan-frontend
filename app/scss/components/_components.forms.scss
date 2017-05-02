@@ -1,0 +1,28 @@
+
+
+.control-label {
+  @extend .label;
+}
+
+.form-control {
+  @extend .control;
+}
+
+input {
+  @extend .input;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.btn {
+  @extend .button;
+  padding: 0.4em 0.6em!important;
+}
+
+.btn-info {
+  @extend .is-info;
+}

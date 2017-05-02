@@ -26,7 +26,7 @@ class Header extends React.PureComponent {
         <div className="nav-left">
           <div className="nav-item">
             <a onClick={ hamburger } id="js-drawer-nav" href="#">
-              <i className="material-icons">menu</i>
+              <i className="material-icons md-24">menu</i>
             </a>
           </div>
           <div id="logo" className="nav-item">

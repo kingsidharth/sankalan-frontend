@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Form from 'react-jsonschema-form';
+
+import { Schema, uiSchema } from './schema';
 
 
 class CompanyForm extends React.PureComponent {
@@ -9,19 +12,32 @@ class CompanyForm extends React.PureComponent {
       maxWidth: width
     }
 
-    return(
-      <div style={style}
-          className="c-company c-company__form o-form">
-        <form id="js-company-form">
-          <label htmlFor="name" className="label">
-            Name:
-            <input name="name" type="text" className="input"></input>
-          </label>
+    const handleSubmit = function(e) {
+      console.log(e);
+    }
 
-          <input className="button is-primary" type="submit" value="Add" />
-        </form>
-      </div>
+    return(
+      <Form
+        schema={ Schema }
+        style={ style }
+        className="form"
+        onSubmit={ handleSubmit }
+      />
     )
+
+    // return(
+    //   <div style={style}
+    //       className="c-company c-company__form o-form">
+    //     <form id="js-company-form">
+    //       <label htmlFor="name" className="label">
+    //         Name:
+    //         <input name="name" type="text" className="input"></input>
+    //       </label>
+    //
+    //       <input className="button is-primary" type="submit" value="Add" />
+    //     </form>
+    //   </div>
+    // )
   }
 }
 

@@ -6,7 +6,6 @@ import CardModal from './card.modal';
 
 class Modal extends React.PureComponent {
   render() {
-    console.log(this);
     const modal = get_modal_content(this.props);
     const { is_visible, close }= this.props || false;
 
