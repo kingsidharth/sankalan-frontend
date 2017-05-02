@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Form from 'react-jsonschema-form';
 
+import { dispatch } from '../../store';
 import { Schema, uiSchema } from './schema';
 
+import { actions } from './actions';
 
 class CompanyForm extends React.PureComponent {
   render() {
@@ -13,7 +15,8 @@ class CompanyForm extends React.PureComponent {
     }
 
     const handleSubmit = function(e) {
-      console.log(e);
+      const company = e.formData;
+      dispatch(actions.company_create(company));
     }
 
     return(

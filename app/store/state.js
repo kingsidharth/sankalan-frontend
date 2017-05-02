@@ -10,6 +10,8 @@ const initial_state = {
   sidebar:  {},
   modal:    {},
 
+  company: {},
+
   view: {
     type: 'init',
 

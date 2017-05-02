@@ -12,9 +12,15 @@ export const types = createTypes([
 
 export const actions = {
   company_create_intent:      actionCreator(types.CREATE_INTENT),
-  company_create:             actionCreator(types.CREATE),
+  company_create:             actionCreator(types.CREATE, 'company'),
   company_edit_intent:        actionCreator(types.EDIT_INTENT),
   company_edit:               actionCreator(types.EDIT),
   company_delete_intent:      actionCreator(types.DELETE_INTENT),
   company_delete:             actionCreator(types.DELETE)
+}
+
+export function create_company(company) {
+  return (dispatch) => {
+    dispatch(actions.company_create(company));
+  }
 }
