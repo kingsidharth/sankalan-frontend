@@ -1,6 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+// var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var DashboardPlugin = require('webpack-dashboard/plugin');
 
 var CONFIG_PATH = './config/config.';
@@ -30,12 +30,6 @@ module.exports = {
   },
 
   plugins: [
-    // SASS => CSS
-    // new ExtractTextPlugin({
-    //  filename: 'dist/main.css',
-    //  allChunks: true
-    // }),
-
     // Command Line Dashboard for Webpack
     new DashboardPlugin()
   ],
@@ -44,8 +38,6 @@ module.exports = {
   stats: {
        colors: true
   },
-  // resolveLoader: {
-  //   root: path.join(__dirname, 'node_modules')
-  // },
+
   devtool: 'source-map'
 };

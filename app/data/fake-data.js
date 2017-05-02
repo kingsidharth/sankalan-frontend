@@ -189,70 +189,52 @@ const transactions = {
 const agg = {
   colgate: [
     {
-      account: {
-        id: 1,
-        name: 'Cash Earnings'
-      },
+      account_id: 1,
+      company: 1,
       amount: 500.34
     },
     {
-      account: {
-        id: 2,
-        name: 'Dividend'
-      },
+      account_id: 2,
+      company: 1,
       amount: 23.43
     },
     {
-      account: {
-        id: 3,
-        name: 'EPS'
-      },
+      account_id: 3,
+      company: 1,
       amount: 230.43
     }
   ],
   sbi: [
     {
-      account: {
-        id: 1,
-        name: 'Cash Earnings'
-      },
-      amount: 5320.34
+      account_id: 1,
+      company: 2,
+      amount: 999999.99
     },
     {
-      account: {
-        id: 2,
-        name: 'Dividend'
-      },
+      account_id: 2,
+      company: 2,
       amount: 233.99
     },
     {
-      account: {
-        id: 3,
-        name: 'EPS'
-      },
+      account_id: 3,
+      company: 2,
       amount: 2320.43
     }
   ],
   hul: [
     {
-      account: {
-        id: 1,
-        name: 'Cash Earnings'
-      },
+      account_id: 1,
+      company: 3,
       amount: 530.34
     },
     {
-      account: {
-        id: 2,
-        name: 'Dividend'
-      },
+      account_id: 2,
+      company: 3,
       amount: 33.99
     },
     {
-      account: {
-        id: 3,
-        name: 'EPS'
-      },
+      account_id: 3,
+      company: 3,
       amount: 100.43
     }
   ]
@@ -266,7 +248,7 @@ export default [
     type:   'company',
     symbol: 'COLPAL',
     transactions: transactions.colgate,
-    agg: agg.colgate
+    agg: agg['colgate']
   },
   {
     id:     2,
@@ -274,7 +256,7 @@ export default [
     type:   'company',
     symbol: 'SBIN',
     transactions: transactions.sbi,
-    agg: agg.sbi
+    agg: agg['sbi']
   },
   {
     id:     3,
@@ -282,6 +264,6 @@ export default [
     type:   'company',
     symbol: 'HUL',
     transactions: [],
-    agg: agg.hul
+    agg: agg['hul']
   },
 ]

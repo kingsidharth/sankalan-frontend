@@ -7,10 +7,23 @@ const initial_state = {
     }
   },
 
-  data: {},
-  sidebar:  {},
-  modal:    {},
-  company: {},
+  sidebar: {},
+  modal:   {},
+
+  data:    {
+    entities: {
+      company: {},
+      transaction: {},
+      account: {},
+      agg: {}
+    }
+  },
+
+  company: {
+    visible: [], //id's of visible companies
+    edit: null,
+    delete: [] // id's of companies to be deleted
+  },
 
   view: {
     type: 'init',

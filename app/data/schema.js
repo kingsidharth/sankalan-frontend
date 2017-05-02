@@ -7,12 +7,12 @@ const transaction = new schema.Entity('transaction', {
 });
 
 const agg = new schema.Entity('agg', {
-  account: account
+  account: account,
+  company: company
 });
 
 const company = new schema.Entity('company', {
-  transactions: [ transaction ],
-  agg: agg
+  transactions: [ transaction ]
 });
 
 export default function(data) {

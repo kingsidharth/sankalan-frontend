@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { merge } from 'lodash';
 
 import View from '../views';
 import { Sidebar, Modal } from '../components';
@@ -8,6 +9,7 @@ import { Menu } from '../shared';
 
 import { actions as ACTIONS } from './actions';
 import { actions as VIEW_ACTIONS, view_init } from '../views/actions';
+import { view_selector } from '../views/selector';
 
 class Layout extends React.Component {
 
@@ -47,8 +49,8 @@ class Layout extends React.Component {
 }
 
 
-const mapStateToProps = function(store) {
-  return store;
+const mapStateToProps = function(state) {
+  return merge(state, { view: view_selector(state) });
 }
 
 // export default DefaultView;

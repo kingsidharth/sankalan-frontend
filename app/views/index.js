@@ -23,7 +23,7 @@ class View extends React.Component{
     let children;
     switch (type) {
       case 'dashboard':
-        children = <DashboardView data={ data } title="Dashboard" />;
+        children = <DashboardView { ...data } title="Dashboard" />;
         break;
 
       case 'company':
