@@ -5,7 +5,6 @@ const ADD_COMPANY = function() {
   dispatch(company_actions.company_create_intent());
 }
 
-
 const header = {
   title: 'SANKALAN',
 

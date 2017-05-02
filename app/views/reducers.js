@@ -8,13 +8,12 @@ const IS_DASHBOARD = ACTION_TYPES.DASHBOARD;
 const IS_COMPANY   = ACTION_TYPES.COMPANY;
 
 const reducer_view = (state = {}, action) => {
-  // const config = find(CONFIGURATION, { type: action.type });
   let next_state = get_next_state(state);
   const config = get_configuration(CONFIGS);
 
   switch (action.type) {
     case IS_INIT:
-
+      return next_state;
       break;
 
     case IS_DASHBOARD:

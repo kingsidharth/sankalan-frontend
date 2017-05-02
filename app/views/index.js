@@ -9,14 +9,15 @@ import { Header } from '../components';
 /*
   View <-> Component Mapping
   @params
-  hamburger =       function(e) // handle_hamburger_onClick
-  view =            { type, header }
-  show_header =     true: boolean
+  sidebar_toggle  = function(e) // handle_hamburger_onClick
+  type =            init: string
+  header =          :object see <Header>
+  data =            data required by the view
 
 */
 class View extends React.Component{
   render() {
-    const { sidebar_toggle } = this.props;
+    const { sidebar_toggle, dispatch } = this.props;
     const { type, header, data } = this.props;
 
     let children;
@@ -55,6 +56,5 @@ View.propTypes = {
 
   type:     PropTypes.string.isRequired,
   data:     PropTypes.object,
-  header:   PropTypes.object,
-  children: PropTypes.element
+  header:   PropTypes.object
 }

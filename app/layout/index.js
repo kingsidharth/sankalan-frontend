@@ -7,12 +7,9 @@ import { Sidebar, Modal } from '../components';
 import { Menu } from '../shared';
 
 import { actions as ACTIONS } from './actions';
-import { actions as VIEW_ACTIONS } from '../views/actions';
+import { actions as VIEW_ACTIONS, view_init } from '../views/actions';
 
 class Layout extends React.Component {
-  constructor() {
-    super();
-  };
 
   render() {
     const { is_visible } = this.props.layout || false;
@@ -26,6 +23,7 @@ class Layout extends React.Component {
     let bound_actions = bindActionCreators(ACTIONS, dispatch);
 
     if(view.type === 'init') {
+      dispatch(VIEW_ACTIONS.view_init());
       dispatch(VIEW_ACTIONS.view_dashboard());
     }
 
@@ -33,6 +31,7 @@ class Layout extends React.Component {
       <div className="layout">
         <Sidebar is_visible={ is_visible.sidebar } />
         <View
+          dispatch={ dispatch }
           { ...view }
           { ...bound_actions }
         />
@@ -51,7 +50,6 @@ class Layout extends React.Component {
 const mapStateToProps = function(store) {
   return store;
 }
-
 
 // export default DefaultView;
 export default connect(mapStateToProps)(Layout);

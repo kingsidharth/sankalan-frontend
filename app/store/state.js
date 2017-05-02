@@ -7,9 +7,9 @@ const initial_state = {
     }
   },
 
+  data: {},
   sidebar:  {},
   modal:    {},
-
   company: {},
 
   view: {
