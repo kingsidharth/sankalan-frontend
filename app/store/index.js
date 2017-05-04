@@ -1,18 +1,18 @@
-import { createStore, applyMiddleware } from 'redux';
-import logger from 'redux-logger';
-import thunk from 'redux-thunk';
+import { createStore, applyMiddleware } from 'redux'
+import logger from 'redux-logger'
+import thunk from 'redux-thunk'
 
-import reducer_app from './reducer';
-import initial_state from './state';
+import reducer from './reducer'
+import initial_state from './state'
 
 let store = createStore(
-  reducer_app,
+  reducer,
   initial_state,
-  applyMiddleware(thunk, logger)
+  applyMiddleware(logger, thunk)
 );
 
-const { dispatch } = store;
+const { dispatch } = store
 
-export default store;
+export default store
 
-export { dispatch };
+export { dispatch }

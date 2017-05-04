@@ -1,47 +1,40 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Form from 'react-jsonschema-form';
+import React from 'react'
+import PropTypes from 'prop-types'
+import Form from 'react-jsonschema-form'
+import { cloneDeep as clone } from 'lodash'
 
-import { dispatch } from '../../store';
-import { Schema, uiSchema } from './schema';
+import { dispatch } from '../../store'
+import { Schema, uiSchema } from './schema'
 
-import { actions } from './actions';
+import { actions } from './actions'
 
 class CompanyForm extends React.PureComponent {
-  render() {
-    const { width } = this.props;
-    const style = {
+  constructor(props) {
+    super(props)
+
+    const { width } = this.props
+
+    this.style = {
       maxWidth: width
     }
+  }
 
-    const handleSubmit = function(e) {
-      const company = e.formData;
-      dispatch(actions.company_create(company));
-    }
+  handle_submit(e) {
+    let company = clone(e.formData)
+    company.type = 'company'
+    dispatch(actions.company_create(company))
+  }
 
+  render() {
     return(
       <Form
         schema={ Schema }
-        style={ style }
+        style={ this.style }
         className="form"
-        onSubmit={ handleSubmit }
+        onSubmit={ this.handle_submit }
       />
     )
-
-    // return(
-    //   <div style={style}
-    //       className="c-company c-company__form o-form">
-    //     <form id="js-company-form">
-    //       <label htmlFor="name" className="label">
-    //         Name:
-    //         <input name="name" type="text" className="input"></input>
-    //       </label>
-    //
-    //       <input className="button is-primary" type="submit" value="Add" />
-    //     </form>
-    //   </div>
-    // )
   }
 }
 
-export default CompanyForm;
+export default CompanyForm

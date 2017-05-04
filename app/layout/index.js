@@ -50,7 +50,7 @@ class Layout extends React.Component {
 
 
 const mapStateToProps = function(state) {
-  return merge(state, { view: view_selector(state) });
+  return merge({}, state, { view: view_selector(state) });
 }
 
 // export default DefaultView;

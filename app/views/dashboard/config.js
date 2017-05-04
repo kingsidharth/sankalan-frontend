@@ -1,9 +1,11 @@
 import { dispatch } from '../../store';
 import { actions as company_actions } from '../../components/company/actions';
 
-const ADD_COMPANY = function() {
+const OPEN_ADD_COMPANY = function(e) {
   dispatch(company_actions.company_create_intent());
+  e.preventDefault();
 }
+
 
 const header = {
   title: 'SANKALAN',
@@ -11,7 +13,7 @@ const header = {
   nav: [
     {
       text: 'Add Company',
-      onclick: ADD_COMPANY
+      onclick: OPEN_ADD_COMPANY
     }
   ],
 }

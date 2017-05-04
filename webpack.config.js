@@ -17,8 +17,8 @@ module.exports = {
   },
 
   devServer: {
-     inline: true,
-     port: 8080
+    inline: true,
+    port: 8080
   },
 
   module: {
@@ -36,7 +36,7 @@ module.exports = {
 
 
   stats: {
-       colors: true
+    colors: true
   },
 
   devtool: 'source-map'

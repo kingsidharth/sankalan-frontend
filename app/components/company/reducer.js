@@ -9,7 +9,6 @@ const reducer_company = (state = {}, action) => {
 
   switch (action.type) {
     case types.CREATE:
-      next_state =  company;
       return next_state;
       break;
     default:

@@ -17,21 +17,20 @@ import { Table } from '../../shared';
 class DashboardView extends React.PureComponent {
   constructor(props) {
     super(props)
-
-    const { company, accounts } = this.props;
-
-    this.aggergate_table = {
-      config: { headers: map_company_to_headers(company, accounts) },
-      rows: map_company_to_rows(company, accounts)
-    }
   }
 
   render() {
     const { title, table, children } = this.props;
+    const { company, accounts } = this.props;
+
+    const aggergate_table = {
+      config: { headers: map_company_to_headers(company, accounts) },
+      rows: map_company_to_rows(company, accounts)
+    }
 
     return(
       <div id="js-view-dashboard" className="js-view">
-        <Table config={ this.aggergate_table.config } rows={ this.aggergate_table.rows } />
+        <Table config={ aggergate_table.config } rows={ aggergate_table.rows } />
         { children }
       </div>
     )

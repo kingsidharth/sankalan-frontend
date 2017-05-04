@@ -15,6 +15,10 @@ export const get_visible_company = createSelector(
   [get_visible_company_filter, get_company],
   (visible_ids, company) => {
 
+    if (!visible_ids) {
+      return map(company, c => c)
+    }
+
     if (visible_ids.length === 0) {
       return company
     } else {
@@ -29,6 +33,6 @@ export const view_selector = createSelector(
   [get_view, get_visible_company, get_accounts],
   (view, company, accounts) => {
     const data = { company, accounts }
-    return merge(view, { data })
+    return merge({}, view, { data })
   }
 )
